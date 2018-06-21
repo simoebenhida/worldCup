@@ -18,9 +18,9 @@ class GameController extends Controller
 
     public function index($type = null) 
     {
-        $this->fetch()->each(function($item,$key) {
-        	$this->storeOrUpdate($item);
-		});
+        // $this->fetch()->each(function($item,$key) {
+        // 	$this->storeOrUpdate($item);
+		// });
 		
 		$game = $this->getGames($type);
 
