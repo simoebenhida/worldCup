@@ -6,9 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!--     <link rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css"> -->
     <title>FiFa</title>
+
+        <!-- FACEBOOK -->
+    <meta property="og:title" content="2018 FIFA World Cup Russia™  - Matches - FIFA.com">
+    <meta property="og:description" content="2018 FIFA World Cup Russia™  - Matches">
+    <meta property="og:locale" content="en-GB">
+    <meta property="og:site_name" content="www.fifa.com">
+    <meta property="og:url" content="https://www.fifa.com/worldcup/matches/">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://img.fifa.com/assets/img/tournaments/17/2018/common/og_image.jpg">
+    <meta property="og:image:type" content="png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <!-- TWITTER -->
+    <meta name="twitter:title" content="2018 FIFA World Cup Russia™  - Matches - FIFA.com">
+    <meta name="twitter:description" content="2018 FIFA World Cup Russia™  - Matches">
+    <meta name="twitter:image" content="https://img.fifa.com/assets/img/tournaments/17/2018/common/og_image.jpg">
+    <meta name="twitter:image:src" content="https://img.fifa.com/assets/img/tournaments/17/2018/common/og_image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@fifacom">
+    <meta name="twitter:creator" content="@fifacom">
+    <meta name="twitter:domain" content="www.fifa.com">
 </head>
 
 <body class="font-sans bg-grey-lighter">
