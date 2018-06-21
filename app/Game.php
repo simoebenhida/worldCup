@@ -8,7 +8,15 @@ use Carbon\Carbon;
 class Game extends Model
 {
     protected $guarded = [];
-    protected $appends = ['goals_home_team','goals_away_team','substitution_away_team','substitution_home_team'];
+    protected $appends = [
+        'goals_home_team',
+        'goals_away_team',
+        'substitution_away_team',
+        'substitution_home_team',
+        'hour',
+        'home_team_cards',
+        'away_team_cards'
+    ];
 
     public function getKeyName()
     {
@@ -60,6 +68,21 @@ class Game extends Model
         return json_decode($value,true);
     }
 
+    public function getHourAttribute()
+    {
+        return Carbon::parse($this->datetime)->format('H:i');
+    }
+
+    public function getHomeTeamStatisticsAttribute($value)
+    {
+        return json_decode($value,true);
+    }
+
+    public function getAwayTeamStatisticsAttribute($value)
+    {
+        return json_decode($value,true);
+    }
+
     public function getGoalsHomeTeamAttribute()
     {
         return collect(json_decode($this->home_team_events,true))->filter(function($item) {
@@ -89,6 +112,20 @@ class Game extends Model
     {
         return collect(json_decode($this->home_team_events,true))->filter(function($item) {
             return $item['type_of_event'] == 'substitution-out' || $item['type_of_event'] == 'substitution-in';
+        });
+    }
+
+    public function getHomeTeamCardsAttribute()
+    {
+        return collect(json_decode($this->home_team_events,true))->filter(function($item) {
+            return $item['type_of_event'] == 'yellow-card' ||  $item['type_of_event'] == 'red-card';
+        });
+    }
+    
+    public function getAwayTeamCardsAttribute()
+    {
+        return collect(json_decode($this->away_team_events,true))->filter(function($item) {
+            return $item['type_of_event'] == 'yellow-card' ||  $item['type_of_event'] == 'red-card';
         });
     }
 }
