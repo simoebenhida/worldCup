@@ -34,40 +34,43 @@
 <body class="font-sans">
     <div class="relative flex flex-col h-12">
         <div class="fixed w-full py-3 pin-t bg-blue-darker px-6 flex items-center">
-            <div class="font-black text-base md:text-2xl text-white tracking-wide -mt-1 md:-mt-0">
+            <div class="w-2/3 font-black text-base md:text-2xl text-white tracking-wide -mt-1 md:-mt-0">
                 2018 FIFA WORLD CUP RUSSIA
+            </div>
+            <div class="w-1/3">
+
             </div>
         </div> 
     </div>
 
-    <div class="fixed w-auto bg-white w-full mb-8 border-b-2 border-grey-lighter">
+    <div class="fixed w-auto bg-white w-full mb-8 border-b-2 border-grey-lighter -mt-1">
             <div class="container mx-auto flex items-center py-2">
                 <div class="px-4">
-                    <a href="/" class="no-underline text-blue-darker font-thin text-base hover:text-blue hover:border-blue border-transparent border-b-2 py-2 
+                    <a href="/" class="no-underline text-blue-darker font-thin text-xs md:text-base hover:text-blue hover:border-blue border-transparent border-b-2 py-2 
                         @if(is_null(last_current_url())) border-blue-darker @endif">
                         All
                     </a>
                 </div>
                 <div class="px-4">
-                    <a href="/now" class="no-underline text-blue-darker font-thin text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
+                    <a href="/now" class="no-underline text-blue-darker font-thin text-xs md:text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
                         @if(last_current_url() === "now") border-blue-darker @endif">
                         Now
                     </a>
                 </div>
                 <div class="px-4">
-                    <a href="/today" class="no-underline text-blue-darker font-thin text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
+                    <a href="/today" class="no-underline text-blue-darker font-thin text-xs md:text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
                         @if(last_current_url() === "today") border-blue-darker @endif">Today</a>
                 </div>
                 <div class="px-4">
-                    <a href="/tomorrow" class="no-underline text-blue-darker font-thin text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
+                    <a href="/tomorrow" class="no-underline text-blue-darker font-thin text-xs md:text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
                         @if(last_current_url() === "tomorrow") border-blue-darker @endif">Tomorrow</a>
                 </div>
                 <div class="px-4">
-                    <a href="/yesterday" class="no-underline text-blue-darker font-thin text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
+                    <a href="/yesterday" class="no-underline text-blue-darker font-thin text-xs md:text-base hover:text-blue hover:border-blue border-b-2 border-transparent py-2 
                         @if(last_current_url() === "yesterday") border-blue-darker @endif">Yesterday</a>
                 </div>
             </div>
-        </div>
+    </div>
 
     
     
