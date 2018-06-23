@@ -201,6 +201,7 @@ module.exports = {
   */
 
   fonts: {
+    'dusha' : ['dusha_plusregular'],
     'sans': [
       'system-ui',
       'BlinkMacSystemFont',

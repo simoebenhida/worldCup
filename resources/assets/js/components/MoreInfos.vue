@@ -1,7 +1,7 @@
 <template>
-    <div @keydown.esc="modal = false">
-        <a @click="modal = true" href="#" class="text-xs underline font-hairline text-blue-light tracking-wide">More...</a>
-        <div v-show="modal" class="fixed pin z-50 overflow-auto bg-smoke-light flex">
+    <div>
+        <a @click="modal = true" href="#" class="text-sm underline font-hairline text-blue-light tracking-wide">More...</a>
+        <div @keyup.esc="modal = false" v-show="modal" class="fixed pin z-50 overflow-auto bg-smoke-light flex">
             <div class="relative p-4 bg-white w-full max-w-lg m-auto flex-col flex rounded">
                 <span class="absolute pin-t pin-b pin-r p-4">
                     <svg @click="modal = false" class="fill-current h-6 w-6 text-grey-darkest hover:text-grey-light" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -30,7 +30,7 @@
                                     <p>Passes Completed : {{ game.home_team_statistics.passes_completed }}</p>
                                 </div>
                                 <div class="w-full md:w-1/3 py-2 px-2 text-grey-darker">
-                                    <div v-for="card in game.home_team_cards" class="flex py-1 text-xs">
+                                    <div v-for="card in game.home_team_cards" class="flex py-1 text-sm">
                                         <span class="w-4/5">
                                         {{ card.player }}
                                         </span>
@@ -60,7 +60,7 @@
                                     <p>Passes Completed : {{ game.away_team_statistics.passes_completed }}</p>
                                 </div>
                                 <div class="w-full md:w-1/3 py-2 px-2 text-grey-darker">
-                                    <div v-for="card in game.away_team_cards" class="flex py-1 text-xs">
+                                    <div v-for="card in game.away_team_cards" class="flex py-1 text-sm">
                                         <span class="w-4/5">
                                         {{ card.player }}
                                         </span>

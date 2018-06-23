@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/test',function() {
-	$a = false;
-	$b = 'oke';
-	return $a ? $b : 'dd';
-});
+Route::get('/groups','GroupController@index');
 Route::get('/', 'GameController@index');
 Route::get('/{type}', 'GameController@index');

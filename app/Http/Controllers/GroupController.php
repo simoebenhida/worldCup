@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Group;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client;
 
 class GroupController extends Controller
 {
+    public function fetch() 
+	{
+		$client = new Client();
+        $res = $client->request('GET', 'http://worldcup.sfg.io/teams/group_results');
+        return collect(json_decode($res->getBody(), true));
+	}
+
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +23,25 @@ class GroupController extends Controller
      */
     public function index()
     {
-        //
+        // collect($this->fetch())->each(function($item,$key){
+        //     $group = Group::find($item['group']['letter']);
+        //     if($group)
+        //     {
+        //         $group->update([
+        //             'letter' => $item['group']['letter'],
+        //             'teams' => json_encode($item['group']['teams'])
+        //         ]);
+        //     }else {
+        //         Group::create([
+        //             'letter' => $item['group']['letter'],
+        //             'teams' => json_encode($item['group']['teams'])
+        //         ]);
+        //     }
+        // });
+
+        return view('groups',[
+            'groups' => Group::all()
+        ]);
     }
 
     /**
