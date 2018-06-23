@@ -86,12 +86,17 @@
                 @foreach($match as $game)
                 <div class="bg-white py-4 px-2 md:px-4 border-b-4 border-grey">
                     <div class="lg:flex">
-                        <div class="md:flex w-full lg:w-2/3 ">
+                        <div class="lg:flex w-full lg:w-2/3 ">
                             <div class="lg:w-1/4 mb-2 py-2 flex flex-col font-hairline text-sm text-grey-darker leading-normal">
                                 <!-- <span>Group A</span> -->
-                                <span>{{ $game->venue }}</span>
-                                <span>{{ $game->location }}</span>
-                                <span>Time : {{ $game->hour }}</span>
+                                <div class="flex flex-col text-center">
+                                    <span>{{ $game->venue }}</span>
+                                    <span>{{ $game->location }}</span>
+                                    <span>Time : {{ $game->hour }}</span>
+                                </div>
+                                <div class="mt-2">
+                                    <img src="{{ asset('img/stadium/'.str_slug($game->location,'_').'.jpg') }}" alt="">
+                                </div>
                             </div>
                             <div class="w-full flex justify-center">
                                 <div class="w-1/3 px-2 mb-2">
