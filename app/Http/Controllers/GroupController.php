@@ -23,21 +23,21 @@ class GroupController extends Controller
      */
     public function index()
     {
-        // collect($this->fetch())->each(function($item,$key){
-        //     $group = Group::find($item['group']['letter']);
-        //     if($group)
-        //     {
-        //         $group->update([
-        //             'letter' => $item['group']['letter'],
-        //             'teams' => json_encode($item['group']['teams'])
-        //         ]);
-        //     }else {
-        //         Group::create([
-        //             'letter' => $item['group']['letter'],
-        //             'teams' => json_encode($item['group']['teams'])
-        //         ]);
-        //     }
-        // });
+        collect($this->fetch())->each(function($item,$key){
+            $group = Group::where('letter',$item['group']['letter'])->first();
+            if($group)
+            {
+                $group->update([
+                    'letter' => $item['group']['letter'],
+                    'teams' => json_encode($item['group']['teams'])
+                ]);
+            }else {
+                Group::create([
+                    'letter' => $item['group']['letter'],
+                    'teams' => json_encode($item['group']['teams'])
+                ]);
+            }
+        });
 
         return view('groups',[
             'groups' => Group::all()
