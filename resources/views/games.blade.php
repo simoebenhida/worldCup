@@ -86,7 +86,7 @@
                 @foreach($match as $game)
                 <div class="bg-white py-4 px-2 md:px-4 border-b-4 border-grey">
                     <div class="lg:flex">
-                        <div class="lg:flex w-full lg:w-2/3 ">
+                        <div class="lg:flex w-full @if($game->status !== 'future') lg:w-2/3 @else @endif lg:w-full">
                             <div class="lg:w-1/4 mb-2 py-2 flex flex-col font-hairline text-sm text-grey-darker leading-normal">
                                 <!-- <span>Group A</span> -->
                                 <div class="flex flex-col text-center">
@@ -122,8 +122,10 @@
                                     </div>
                                 </div>
                                 <div class="w-1/4 flex flex-col items-center mb-2">
+                                @if($game->status !== 'future')
                                     <p class="font-hairline text-sm md:text-lg text-grey-darker">{{ strtoupper($game->time) }}</p>
                                     <p class="font-black font-mono text-sm md:text-lg text-grey-darker">{{ $game->home_team['goals'] }} - {{ $game->away_team['goals'] }}</p>
+                                @endif
                                 </div>
                                 <div class="w-1/3 md:px-2 mb-2">
                                     <div class="flex items-center">
@@ -149,7 +151,7 @@
                                 </div>
                             </div>
                         </div>
-
+                        @if($game->status !== 'future')                        
                         <div class="w-full lg:w-1/2 px-3 flex">
                             <div class="w-1/2 text-grey-darker border-r border-indigo-light px-2">
                                 <p class="font-hairline text-sm mb-1 flex items-center px-1">
@@ -196,10 +198,13 @@
                             </div>
 
                         </div>
+                        @endif
                     </div>
+                    @if($game->status !== 'future')
                     <div class="flex justify-end">
                         <more :game="{{ $game }}"/>                        
                     </div>
+                    @endif
                 </div>
 
 
