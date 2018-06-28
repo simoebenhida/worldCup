@@ -8,12 +8,12 @@ use GuzzleHttp\Client;
 
 class GroupController extends Controller
 {
-    public function fetch() 
-	{
-		$client = new Client();
+    public function fetch()
+    {
+        $client = new Client();
         $res = $client->request('GET', 'http://worldcup.sfg.io/teams/group_results');
         return collect(json_decode($res->getBody(), true));
-	}
+    }
 
 
     /**
@@ -23,23 +23,22 @@ class GroupController extends Controller
      */
     public function index()
     {
-        collect($this->fetch())->each(function($item,$key){
-            $group = Group::where('letter',$item['group']['letter'])->first();
-            if($group)
-            {
+        collect($this->fetch())->each(function ($item, $key) {
+            $group = Group::where('letter', $item['letter'])->first();
+            if ($group) {
                 $group->update([
-                    'letter' => $item['group']['letter'],
-                    'teams' => json_encode($item['group']['teams'])
+                    'letter' => $item['letter'],
+                    'teams' => json_encode($item['ordered_teams'])
                 ]);
-            }else {
+            } else {
                 Group::create([
-                    'letter' => $item['group']['letter'],
-                    'teams' => json_encode($item['group']['teams'])
+                    'letter' => $item['letter'],
+                    'teams' => json_encode($item['ordered_teams'])
                 ]);
             }
         });
-
-        return view('groups',[
+        
+        return view('groups', [
             'groups' => Group::all()
         ]);
     }
